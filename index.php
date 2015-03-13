@@ -2,7 +2,7 @@
 $data = json_decode(file_get_contents('incoming/data.json'), true);
 ?>
 <!DOCTYPE html>
-<html xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script src="//wc.office.imsamurai.me//jquery-1.11.2.min.js"></script>
