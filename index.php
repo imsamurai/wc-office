@@ -22,6 +22,7 @@ $data = json_decode(file_get_contents('incoming/data.json'), true);
       }
       $("#voltage").html((data.voltage/1000));
       $("#ip").html(data.ip);
+      $("#connection").html("#"+data.connection);
       $("#date").html(new Date(data.timestamp*1000));
       _data = data;
       setTimeout(app, timeout*1000)
@@ -58,6 +59,7 @@ body {
 <div><b>Voltage: </b><span id="voltage"></span></div>
 <div><b>IP: </b><span id="ip"></span></div>
 <div><b>Last received on: </b><span id="date"></span></div>
+<div><b>Connection: </b><span id="connection"></span></div>
 </body>
 </html>
 
