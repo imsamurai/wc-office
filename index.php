@@ -15,7 +15,7 @@ $data = json_decode(file_get_contents('incoming/data.json'), true);
         var snd = new Audio("toilet.mp3");
         snd.play();
       }
-      if ((new Date).getTime()/1000 - data.timestamp > 5 * 60) {
+      if (<?= time(); ?> - data.timestamp > 5 * 60) {
         $("#sensor").removeClass('open').removeClass('closed').addClass('error').html('ERROR, PLEASE CHECK SENSOR!');
       } else {
         if (data.light == "1") {
