@@ -3,9 +3,10 @@ pinLight = 4;
 pinGround = 3;
 debug = true;
 ip = nil
-voltage = node.readvdd33()
+
 
 function runApp()
+     voltage = node.readvdd33()
      pr("init template")
      local template = loadstring(settings.send.template)
      pr("init request")
@@ -52,18 +53,34 @@ function initApp()
      gpio.mode(pinLight, gpio.INPUT);
      gpio.mode(pinGround, gpio.OUTPUT);
      gpio.write(pinGround, gpio.LOW);
+     
+end
+
+function initWifi(conNum)
      wifi.setmode(wifi.STATION)
-     wifi.sta.config(settings.wifi.ssid,settings.wifi.pass)
+     wifi.sta.config(settings.wifi.connections[conNum+1].ssid,settings.wifi.connections[conNum+1].pass)
+     pr("Set wifi ssid="..settings.wifi.connections[conNum+1].ssid)
 end
 
 function startApp()
+     local conNum = settings.wifi.default;
+     local retries = 0;
+     initWifi(conNum);
      --collectgarbage()
      --pr(node.heap())
-     tmr.alarm(1, 1000, 1, function() 
+     tmr.alarm(1, 2000, 1, function() 
+        if retries >= settings.wifi.retries then
+          conNum = conNum + 1;
+          conNum = conNum % #settings.wifi.connections
+          initWifi(conNum)
+          retries = 0
+        end
         ip = wifi.sta.getip()
         if not ip then
            pr("Connect AP, Waiting...") 
+           retries = retries + 1;
         else
+           settings.wifi.default = conNum
            tmr.stop(1)
            runApp()
            --tmr.alarm(2, 10000, 1, startApp)
@@ -77,4 +94,4 @@ function pr(val)
      end
 end
 initApp()
-startApp() 
+startApp()
