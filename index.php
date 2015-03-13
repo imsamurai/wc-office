@@ -17,7 +17,7 @@ $data = json_decode(file_get_contents('incoming/data.json'), true);
       }
       if ((new Date).getTime()/1000 - data.timestamp > 5 * 60) {
         $("#sensor").removeClass('open').removeClass('closed').addClass('error').html('ERROR, PLEASE CHECK SENSOR!');
-      else {
+      } else {
         if (data.light == "1") {
           $("#sensor").removeClass('open').addClass('closed').html('OCCUPIED...');
         } else {
