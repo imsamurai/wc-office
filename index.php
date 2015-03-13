@@ -55,6 +55,10 @@ body {
   background-color: red;
   color: white;
 }
+.error {
+  background-color: orange;
+  color: white;
+}
 </style>
 <title>IOIX toilet</title>
 </head>
