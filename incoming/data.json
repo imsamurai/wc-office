@@ -1,1 +1,7 @@
-{"timestamp":1426254193}
+{
+light: "1",
+voltage: "3440",
+ip: "10.0.0.114",
+connection: "1",
+timestamp: 1426265378
+}
