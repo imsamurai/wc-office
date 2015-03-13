@@ -15,10 +15,14 @@ $data = json_decode(file_get_contents('incoming/data.json'), true);
         var snd = new Audio("toilet.mp3");
         snd.play();
       }
-      if (data.light == "1") {
-        $("#sensor").removeClass('open').addClass('closed').html('OCCUPIED...');
-      } else {
-        $("#sensor").removeClass('closed').addClass('open').html('FREE!');
+      if ((new Date).getTime()/1000 - data.timestamp > 5 * 60) {
+        $("#sensor").removeClass('open').removeClass('closed').addClass('error').html('ERROR, PLEASE CHECK SENSOR!');
+      else {
+        if (data.light == "1") {
+          $("#sensor").removeClass('open').addClass('closed').html('OCCUPIED...');
+        } else {
+          $("#sensor").removeClass('closed').addClass('open').html('FREE!');
+        }
       }
       $("#voltage").html((data.voltage/1000));
       $("#ip").html(data.ip);
