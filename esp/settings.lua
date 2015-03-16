@@ -9,6 +9,10 @@ settings = {
        { 
          ssid = "ioix", 
          pass = "12345qwert" 
+       },
+       { 
+         ssid = "hce-project", 
+         pass = "zxd1-459l-9ggw" 
        }}
   }, 
   send = { 
