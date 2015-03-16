@@ -29,8 +29,7 @@ $data = json_decode(file_get_contents('incoming/data.json'), true);
       $("#connection").html("#"+data.connection);
       $("#date").html(new Date(data.timestamp*1000));
       _data = data;
-      setTimeout(app, timeout*1000)
-    }, cache: false});
+    }, complete: function() { setTimeout(app, timeout*1000); }, cache: false});
   };
   app();
 </script>
