@@ -13,10 +13,6 @@ $connection = (!empty($_GET['connection']) && $_GET['connection'] <= 1 && $_GET[
        { 
          ssid = "hce-project", 
          pass = "zxd1-459l-9ggw" 
-       },
-       { 
-         ssid = "ioix", 
-         pass = "12345qwert" 
        }}
   }, 
   send = { 
