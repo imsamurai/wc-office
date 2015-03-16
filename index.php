@@ -19,9 +19,9 @@ $data = json_decode(file_get_contents('incoming/data.json'), true);
         $("#sensor").removeClass('open').removeClass('closed').addClass('error').html('ERROR, PLEASE CHECK SENSOR!');
       } else {
         if (data.light == "1") {
-          $("#sensor").removeClass('open').addClass('closed').html('OCCUPIED...');
+          $("#sensor").removeClass('open').removeClass('error').addClass('closed').html('OCCUPIED...');
         } else {
-          $("#sensor").removeClass('closed').addClass('open').html('FREE!');
+          $("#sensor").removeClass('closed').removeClass('error').addClass('open').html('FREE!');
         }
       }
       $("#voltage").html((data.voltage/1000));
