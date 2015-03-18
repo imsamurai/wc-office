@@ -25,7 +25,7 @@ $data = json_decode(file_get_contents('incoming/data.json'), true);
         }
       }
       $("#voltage").html((data.voltage/1000));
-      $("#ip").html(data.ip);
+      $("#ip").html(data.ip+' ['+data.mac+']');
       $("#connection").html("#"+data.connection);
       $("#date").html(new Date(data.timestamp*1000));
       _data = data;
