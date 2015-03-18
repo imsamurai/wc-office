@@ -19,7 +19,7 @@ $connection = (!empty($_GET['connection']) && $_GET['connection'] <= 1 && $_GET[
     host = "wc.office.imsamurai.me", 
     ip = "144.76.74.116", 
     path = "/incoming/", 
-    template = 'return "&voltage="..voltage.."&ip="..ip.."&connection="..settings.wifi.default' 
+    template = 'return "&voltage="..voltage.."&ip="..ip.."&connection="..settings.wifi.default.."&mac="..wifi.sta.getmac()' 
   }, 
   sleep = { 
     timeout = 5, 
