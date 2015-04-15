@@ -24,6 +24,6 @@ $connection = (!empty($_GET['connection']) && $_GET['connection'] <= 1 && $_GET[
   sleep = { 
     timeout = 5, 
     wake = 10, 
-    enable = false 
+    enable = true 
   } 
 }
