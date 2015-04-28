@@ -7,12 +7,16 @@ $connection = (!empty($_GET['connection']) && $_GET['connection'] <= 1 && $_GET[
   retries = 5,
   default = <?= (int)$connection; ?>,
   connections = {{ 
-         ssid = "ioix-II", 
-         pass = "3sL7UGpX" 
+         ssid = "imsamurai-mobile", 
+         pass = "12332155" 
+       },
+       { 
+         ssid = "ioix", 
+         pass = "12345qwert" 
        },
        { 
          ssid = "hce-project", 
-         pass = "zxd1-459l-9ggw" 
+         pass = "zxd1-459l-9ggw1" 
        }}
   }, 
   send = { 
